@@ -5,5 +5,4 @@ export default {
   router: PropTypes.object,
   location: PropTypes.object,
   history: PropTypes.object,
-  muiTheme: PropTypes.object,
 };

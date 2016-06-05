@@ -50,6 +50,7 @@
     "postcss-loader": "~0.8.2",
     "precss": "~1.4.0",
     "react": "~15.0.1",
+    "ejs": "~2.4.1",
     "react-css-modules": "~3.7.6",
     "react-dom": "~15.0.1",
     "react-helmet": "^3.0.1",

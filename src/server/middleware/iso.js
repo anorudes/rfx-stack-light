@@ -18,7 +18,6 @@ function handleRouter(req, res, props) {
 
   const store = initStore({
     app: { ssrLocation: req.url },
-    ui: { mui: { userAgent: req.headers['user-agent'] } },
   });
 
   fetchData(store, props.components, props.params, props.location.query)

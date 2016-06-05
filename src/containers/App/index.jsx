@@ -9,20 +9,6 @@ import styles from './styles.css';
 
 @connect
 export default class App extends Component {
-
-  static propTypes = {
-    children: React.PropTypes.node,
-    location: React.PropTypes.object,
-    params: React.PropTypes.object,
-    routeParams: React.PropTypes.object,
-    route: React.PropTypes.object,
-    routes: React.PropTypes.array,
-  };
-
-  handleAppNavRequestChange = (open) => {
-    this.context.store.ui.toggleAppNav(open);
-  };
-
   render() {
     const { posts } = this.context.store;
 
