@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%-head.title%>
+    <%-head.meta%>
+    <%-head.link%>
+    <% if (build) { %>
+      <link href="<%-build%>/style.css" rel="stylesheet" type="text/css">
+    <% } %>
+    <script>
+      <%- 'window.__STATE = ' + state + ';' %>
+    </script>
+  </head>
+  <body>
+    <div id="root"><%-root%></div>
+    <script src="<%-build%>/bundle.js"></script>
+  </body>
+</html>
