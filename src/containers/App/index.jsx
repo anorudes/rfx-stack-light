@@ -9,12 +9,23 @@ import styles from './styles.css';
 
 @connect
 export default class App extends Component {
+  static fetchData(store) {
+    return store.posts.fetchPosts();
+  }
+
   render() {
     const { posts } = this.context.store;
 
     return (
-      <div>
+      {
+        posts.items.toJS().map(post =>
+          <span key={post.id}>
+            {post.id})
+          </span>
+        )
+      }
         test = { posts.test }
+        <br />
         <button
           className={styles.button}
           onClick={() => posts.changeTest()}

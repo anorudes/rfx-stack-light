@@ -2,7 +2,7 @@
 based on [rfx-stack](https://github.com/foxhound87/rfx-stack)
 
 #### Universal App featuring:
-### React + Feathers + MobX
+### React + MobX
 
 ## Setup
 

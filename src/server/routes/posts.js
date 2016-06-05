@@ -4,9 +4,7 @@ const Router = new Express.Router();
 
 export default [
 
-  Router.get('/api/posts', function(req, res) {
-    console.log(req.query.testParam); // example
-
+  Router.get('/api/posts', (req, res) => {
     res.json({
       posts: [
         {
