@@ -18,15 +18,6 @@ const Env = getenv.multi({
     host: 'API_HOST',
     port: 'API_PORT',
   },
-  io: {
-    host: 'IO_HOST',
-    port: 'IO_PORT',
-  },
-  db: {
-    host: 'DB_HOST',
-    name: 'DB_NAME',
-    port: 'DB_PORT',
-  },
 });
 
 export { Env };

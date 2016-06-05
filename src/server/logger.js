@@ -23,10 +23,6 @@ function logServerConfig(type = null) {
   if (type !== 'API') {
     log.info('WEB Listening at:', url);
     log.info('Environment:', Config.env);
-    log.info('------------------------------------------');
-    log.info('IO Host:', Config.io.host);
-    log.info('IO Port:', Config.io.port);
-    log.info('------------------------------------------');
   }
 }
 
