@@ -1,10 +1,11 @@
 {
-  "presets": ["es2015", "stage-0", "react"],
+  "presets": ["react", "es2015" , "stage-0"],
   "plugins": [
     "babel-root-import",
     "jsx-control-statements",
     "transform-decorators-legacy",
     "transform-class-properties",
-    "transform-decorators"
+    "transform-decorators",
+    "transform-decorators-legacy"
   ]
 }

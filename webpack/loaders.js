@@ -1,16 +1,3 @@
-import { Dir } from '~/config';
-
-export function getPreLoaders() {
-  return {
-    eslint: {
-      test: /\.jsx?$/,
-      loader: 'eslint-loader',
-      exclude: /node_modules/,
-      include: Dir.src,
-    },
-  };
-}
-
 export function getLoaders() {
   return {
     jsx: {

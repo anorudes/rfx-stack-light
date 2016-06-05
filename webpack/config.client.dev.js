@@ -34,7 +34,6 @@ export function config() {
         proxy: ['http://', Config.web.host, ':', Config.web.port].join(''),
       }, { reload: false }),
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoErrorsPlugin(),
       new NpmInstallWebpackPlugin({ save: true }),
     ],
   };

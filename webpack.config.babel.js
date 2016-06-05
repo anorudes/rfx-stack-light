@@ -1,12 +1,11 @@
 import merge from 'webpack-merge';
 import Globals from './webpack/globals';
-import { getLoaders, getPreLoaders } from './webpack/loaders';
+import { getLoaders } from './webpack/loaders';
 
 const TARGET = process.env.npm_lifecycle_event;
 
 let Config;
 let Loader = getLoaders();
-const PreLoader = getPreLoaders();
 
 if (TARGET === 'server:dev') {
   Config = require('./webpack/config.client').load();
@@ -35,7 +34,6 @@ Config = merge(Config, Globals);
 // Loaders
 Config = merge(Config, {
   module: {
-    preLoaders: [PreLoader.eslint],
     loaders: [
       Loader.jsx,
       Loader.json,

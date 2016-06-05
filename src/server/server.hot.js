@@ -10,7 +10,6 @@ const app = feathers();
 
 app
   .use(compression())
-  .set('view engine', 'ejs')
   .configure(serveStaticMiddleware)
   .use(hotMiddleware)
   .use(isoMiddleware)

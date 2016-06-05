@@ -1,31 +1,35 @@
-import { Dir } from '~/config';
-
-import compression from 'compression';
+import Express from 'express';
+import http from 'http';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
 import cors from 'cors';
-import feathers from 'feathers';
-import configuration from 'feathers-configuration';
-import hooks from 'feathers-hooks';
-import rest from 'feathers-rest';
-import socketio from 'feathers-socketio';
+import helmet from 'helmet';
+import cookieParser from 'cookie-parser';
+import fs from 'fs';
+import { Config } from '~/config';
 
-import apiBeforeMiddleware from './middleware/api/before';
-import apiAfterMiddleware from './middleware/api/after';
+// API routes
+import routes from './routes';
 
-import auth from './auth';
-import services from './services';
-import { startApiServer as start } from './start';
+const app = new Express();
+const server = new http.Server(app);
+const logPath = __dirname + '/../../logs/api.log';
+const accessLogStream = fs.createWriteStream(logPath, { flags: 'a' });
 
-const app = feathers()
-  .configure(configuration(Dir.config, 'feathers'));
+app.set('trust proxy', 1);
+app.use(cookieParser());
+app.use(morgan('combined', { stream: accessLogStream }));
+app.use(bodyParser.urlencoded({
+  extended: false,
+}));
+app.use(bodyParser.json());
+app.use(cors());
+app.use(helmet());
+app.use(routes);
 
-app
-  .use(compression())
-  .options('*', cors())
-  .configure(apiBeforeMiddleware)
-  .configure(hooks())
-  .configure(rest())
-  .configure(socketio((io) => io.set('origins', '*:*')))
-  .configure(auth)
-  .configure(services)
-  .configure(apiAfterMiddleware)
-  .configure(start);
+server.listen(Config.api.port, () => {
+  const host = server.address().address;
+  const port = server.address().port;
+
+  console.log('Api is listening on http://%s:%s', host, port);
+});

@@ -1,0 +1,39 @@
+@import 'normalize.css';
+
+/* :global */
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-weight: 200;
+  font-size: 100%;
+  color: #505260;
+  background-color: white;
+}
+
+a {
+  color: #2f889a;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+input, textarea {
+  font-size: 16px;
+  font-size: 1rem;
+}
+
+input::-ms-clear, textarea::-ms-clear {
+  display: none;
+}
